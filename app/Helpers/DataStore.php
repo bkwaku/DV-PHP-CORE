@@ -21,16 +21,18 @@ class DataStore extends Helper
      * @param $serviceName
      * @param $tableName
      * @param Service     $service
+     * @param $port_number
      *
      * @return DataStore
      */
-    public static function service($serviceName, $tableName, Service $service = null)
+    public static function service($serviceName, $tableName, Service $service = null, $port_number = 8080)
     {
         $serviceInstance = new Service();
         $service = ($service == null) ? $serviceInstance : $service;
         $serviceDetails = function () use ($serviceName, $tableName, $service) {
             self::$payload['service_name'] = $serviceName;
             self::$payload['params'] = ['table' => [$tableName]];
+            self::$payload['port_number'] = $port_number;
             self::$payload['service'] = $service;
         };
         (isset(self::$payload['service_name'], self::$payload['params']['table'])) ? true : $serviceDetails();
