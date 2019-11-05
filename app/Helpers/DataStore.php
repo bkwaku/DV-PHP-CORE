@@ -21,7 +21,7 @@ class DataStore extends Helper
      * @param $serviceName
      * @param $tableName
      * @param Service     $service
-     * @param $port_number
+     * @param $port
      *
      * @return DataStore
      */
