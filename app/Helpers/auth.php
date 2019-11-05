@@ -105,7 +105,7 @@ trait auth
         if ($jwt_payload == null && $force_auth == false) {
             return (object)['id'=>'', 'session_token'=>''];
         } elseif ($force_auth == true && $jwt_payload == null) {
-            throw new \UnexpectedValueException('Passed in an invalid `devless-user-token`');
+            throw new \UnexpectedValueException('Invalid `devless-user-token`');
         }
         if ($user_token == 'null') {
             self::interrupt(633, null, [], true);
